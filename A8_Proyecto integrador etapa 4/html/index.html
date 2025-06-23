@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>index.html</title>
+  <link href="../css/estilos.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <div class="topbar">
+  <a href="index.html" style="text-decoration: none; color: inherit;">WIKI DE DISEÑO UVM</a>
+</div>
+
+  <div class="navbar">
+    <ul class="menu">
+      <li><a href="inicio.html">Inicio</a></li>
+      <li><a href="secciones.html">Secciones</a></li>
+      <li><a href="recursos.html">Recursos</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+    <div class="search-box">
+      <input type="text" id="buscar" placeholder="Buscar...">
+      <button onclick="buscarContenido()">Buscar</button>
+		<script>
+const paginas = [
+  "index.html",
+  "ux.html",
+  "ui.html",
+  "diseno.html",
+  "colaboracion.html"
+];
+
+function buscarContenido() {
+  const termino = document.getElementById("buscar").value.toLowerCase();
+  const resultadosDiv = document.getElementById("resultados");
+  resultadosDiv.innerHTML = "Buscando...";
+
+  let encontrados = [];
+
+  Promise.all(
+    paginas.map(pagina =>
+      fetch(pagina)
+        .then(response => response.text())
+        .then(html => {
+          if (html.toLowerCase().includes(termino)) {
+            encontrados.push(pagina);
+          }
+        })
+        .catch(error => console.error("Error cargando " + pagina, error))
+    )
+  ).then(() => {
+    if (encontrados.length > 0) {
+      resultadosDiv.innerHTML = "<p>Resultados encontrados en:</p><ul>" +
+        encontrados.map(p => `<li><a href="${p}">${p}</a></li>`).join("") +
+        "</ul>";
+    } else {
+      resultadosDiv.innerHTML = `<p>No se encontró la palabra clave: <strong>${termino}</strong></p>`;
+    }
+  });
+}
+</script>
+
+    </div>
+  </div>
+
+  <div class="contenedor">
+    <div class="titular">LA EVOLUCIÓN DEL CONOCIMIENTO COLABORATIVO EN LA ERA DIGITAL</div>
+
+    <a href="../../A8_Proyecto integrador etapa 4/html/experienciadeusuario.html" class="valor1" target="_blank" rel="noopener noreferrer">Experiencia de Usuario (UX)</a>
+    <a href="../../A8_Proyecto integrador etapa 4/html/interfazdeusuario.html" class="valor2" target="_blank" rel="noopener noreferrer">Interfaz de Usuario (UI)</a>
+    <a href="../../A8_Proyecto integrador etapa 4/html/designthinking.html" class="valor3" target="_blank" rel="noopener noreferrer">Metodología de Design Thinking</a>
+    <a href="../../A8_Proyecto integrador etapa 4/html/colaboracionenlanube.html" class="valor4" target="_blank" rel="noopener noreferrer">Colaboración en la nube: Google Drive y la evolución del conocimiento digital</a>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-contenido">
+      <p>&copy; 2025 DSG Wiki – Todos los derechos reservados.</p>
+      <p>
+        Proyecto académico | <a href="contacto.html">Contacto</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- BUSCADOR FUNCIONAL -->
+ <script>
+  function buscarContenido() {
+    const termino = document.getElementById("buscar").value.toLowerCase().trim();
+    if (!termino) {
+      alert("Por favor escribe un término para buscar.");
+      return;
+    }
+
+    const busquedas = [
+      { palabras: ["ux", "experiencia", "usuario"], url: "../../A8_Proyecto integrador etapa 4/html/experienciadeusuario.html" },
+      { palabras: ["ui", "interfaz"], url: "../../A8_Proyecto integrador etapa 4/html/interfazdeusuario.html" },
+      { palabras: ["thinking", "design"], url: "../../A8_Proyecto integrador etapa 4/html/designthinking.html" },
+      { palabras: ["nube", "google", "drive", "colaboracion", "colaboración"], url: "../../A8_Proyecto integrador etapa 4/html/colaboracionenlanube.html" },
+      { palabras: ["inicio"], url: "inicio.html" },
+      { palabras: ["secciones"], url: "secciones.html" },
+      { palabras: ["recursos"], url: "recursos.html" },
+      { palabras: ["contacto"], url: "contacto.html" }
+    ];
+
+    let encontrado = false;
+    for (const item of busquedas) {
+      for (const palabra of item.palabras) {
+        if (termino.includes(palabra)) {
+          window.location.href = item.url;
+          encontrado = true;
+          break;
+        }
+      }
+      if (encontrado) break;
+    }
+    if (!encontrado) alert("No se encontró ninguna página relacionada con: " + termino);
+  }
+
+  // Detectar Enter en input para buscar
+  document.getElementById("buscar").addEventListener("keydown", function(e) {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      buscarContenido();
+    }
+  });
+</script>
+
+
+</body>
+</html>

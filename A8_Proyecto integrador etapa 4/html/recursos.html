@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Recursos | DSG Wiki</title>
+  <link href="../css/estilos.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+  <div class="topbar">
+  <a href="index.html" style="text-decoration: none; color: inherit;">WIKI DE DISEÑO UVM</a>
+</div>
+
+  <div class="navbar">
+    <ul class="menu">
+      <li><a href="inicio.html">Inicio</a></li>
+      <li><a href="secciones.html">Secciones</a></li>
+      <li><a href="recursos.html" class="activo">Recursos</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+    <div class="search-box">
+  <input type="text" id="buscar" placeholder="Buscar...">
+  <button onclick="buscarContenido()">Buscar</button>
+</div>
+</div>
+
+  <div class="contenedor">
+    <div class="titular">RECURSOS Y HERRAMIENTAS</div>
+
+    <div class="blog-list">
+
+      <div class="blog-item">
+        <h2>Guía de UX en español por Nielsen Norman Group</h2>
+        <p>Fundamentos del diseño centrado en el usuario por una de las autoridades más reconocidas en UX.</p>
+        <a class="leer-mas" href="https://www.nngroup.com/articles/definition-user-experience/" target="_blank" rel="noopener noreferrer">Leer más</a>
+      </div>
+
+      <div class="blog-item">
+        <h2>Recursos gratuitos de UI Kit y wireframes (Figma Community)</h2>
+        <p>Descarga elementos reutilizables para prototipos de interfaz en Figma. Ideal para estudiantes y principiantes.</p>
+        <a class="leer-mas" href="https://www.figma.com/community" target="_blank" rel="noopener noreferrer">Ver recursos</a>
+      </div>
+
+      <div class="blog-item">
+        <h2>Accesibilidad Web (WAI) – WCAG explicado fácil</h2>
+        <p>Todo lo que necesitas para comprender cómo hacer sitios accesibles para personas con discapacidad visual, auditiva o motriz.</p>
+        <a class="leer-mas" href="https://www.w3.org/WAI/fundamentals/accessibility-intro/" target="_blank" rel="noopener noreferrer">Aprender más</a>
+      </div>
+
+      <div class="blog-item">
+        <h2>Curso gratuito de Design Thinking de la Universidad de Virginia (Coursera)</h2>
+        <p>Aprende los pasos y herramientas para aplicar esta metodología de innovación en productos digitales y servicios.</p>
+        <a class="leer-mas" href="https://www.coursera.org/learn/uva-darden-design-thinking-innovation" target="_blank" rel="noopener noreferrer">Ir al curso</a>
+      </div>
+
+<div class="blog-item">
+  <h2>Herramientas de IA para diseñadores y especialistas en marketing</h2>
+  <p>Descubre una recopilación curada de herramientas de inteligencia artificial diseñadas para potenciar tu productividad y creatividad en el diseño y marketing.</p>
+  <a class="leer-mas" href="https://www.toools.design/ai-tools-for-designers-and-marketing" target="_blank" rel="noopener noreferrer">Explorar herramientas</a>
+</div>
+
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-contenido">
+      <p>&copy; 2025 DSG Wiki – Todos los derechos reservados.</p>
+      <p>Proyecto académico | <a href="contacto.html">Contacto</a></p>
+    </div>
+  </footer>
+	
+	<!-- BUSCADOR FUNCIONAL -->
+ <script>
+  function buscarContenido() {
+    const termino = document.getElementById("buscar").value.toLowerCase().trim();
+    if (!termino) {
+      alert("Por favor escribe un término para buscar.");
+      return;
+    }
+
+    const busquedas = [
+      { palabras: ["ux", "experiencia", "usuario"], url: "../../A8_Proyecto integrador etapa 4/html/experienciadeusuario.html" },
+      { palabras: ["ui", "interfaz"], url: "../../A8_Proyecto integrador etapa 4/html/interfazdeusuario.html" },
+      { palabras: ["thinking", "design"], url: "../../A8_Proyecto integrador etapa 4/html/designthinking.html" },
+      { palabras: ["nube", "google", "drive", "colaboracion", "colaboración"], url: "../../A8_Proyecto integrador etapa 4/html/colaboracionenlanube.html" },
+      { palabras: ["inicio"], url: "inicio.html" },
+      { palabras: ["secciones"], url: "secciones.html" },
+      { palabras: ["recursos"], url: "recursos.html" },
+      { palabras: ["contacto"], url: "contacto.html" }
+    ];
+
+    let encontrado = false;
+    for (const item of busquedas) {
+      for (const palabra of item.palabras) {
+        if (termino.includes(palabra)) {
+          window.location.href = item.url;
+          encontrado = true;
+          break;
+        }
+      }
+      if (encontrado) break;
+    }
+    if (!encontrado) alert("No se encontró ninguna página relacionada con: " + termino);
+  }
+
+  // Detectar Enter en input para buscar
+  document.getElementById("buscar").addEventListener("keydown", function(e) {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      buscarContenido();
+    }
+  });
+</script>
+
+</body>
+</html>

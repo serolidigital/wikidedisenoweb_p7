@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Contacto - DSG WIKI</title>
+  <link href="../css/estilos.css" rel="stylesheet" type="text/css">
+  <style>
+    .form-contacto {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #F9F9F9;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .form-contacto label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+
+    .form-contacto input,
+    .form-contacto textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 16px;
+      border: 2px solid #07ED3B;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: inherit;
+    }
+
+    .form-contacto textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-contacto button {
+      background-color: #EBE6E6;
+      border: 2px solid #07ED3B;
+      color: #000;
+      padding: 6px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+  .form-contacto {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 40px; /* más espacio interno */
+  background-color: #F9F9F9;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="topbar">DSG WIKI</div>
+
+  <div class="navbar">
+    <ul class="menu">
+      <li><a href="inicio.html">Inicio</a></li>
+      <li><a href="secciones.html">Secciones</a></li>
+      <li><a href="recursos.html">Recursos</a></li>
+      <li><a href="contacto.html" class="activo">Contacto</a></li>
+    </ul>
+    <div class="search-box">
+      <input type="text" placeholder="Buscar...">
+      <button>Buscar</button>
+    </div>
+  </div>
+
+  <div class="contenedor">
+    <div class="titular">Contacto</div>
+
+    <form class="form-contacto" action="#" method="POST" novalidate>
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+
+      <label for="email">Correo electrónico:</label>
+      <input type="email" id="email" name="email" placeholder="tu@correo.com" required>
+
+      <label for="asunto">Asunto:</label>
+      <input type="text" id="asunto" name="asunto" placeholder="Motivo del mensaje" required>
+
+      <label for="mensaje">Mensaje:</label>
+      <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje aquí..." required></textarea>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-contenido">
+      <p>&copy; 2025 DSG Wiki – Todos los derechos reservados.</p>
+      <p>
+        Proyecto académico | <a href="mailto:contacto@dsgewiki.com">Contacto</a>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

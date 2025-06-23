@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>secciones.html</title>
+  <link href="../css/estilos.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+  <div class="topbar">
+  <a href="index.html" style="text-decoration: none; color: inherit;">WIKI DE DISEÑO UVM</a>
+</div>
+
+  <div class="navbar">
+    <ul class="menu">
+      <li><a href="inicio.html">Inicio</a></li>
+      <li><a href="secciones.html" class="activo">Secciones</a></li>
+      <li><a href="recursos.html">Recursos</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+    <div class="search-box">
+  <input type="text" id="buscar" placeholder="Buscar...">
+  <button onclick="buscarContenido()">Buscar</button>
+</div>
+</div>
+
+  <div class="contenedor">
+    <div class="titular">EXPLORA NUESTRAS SECCIONES</div>
+
+    <p style="text-align:center; max-width: 800px; margin: 0 auto 30px auto;">
+      En DSG Wiki hemos reunido cuatro secciones esenciales para entender el diseño centrado en el usuario. Aquí encontrarás información clara sobre experiencia de usuario (UX), diseño de interfaces (UI), metodologías creativas como Design Thinking y el papel de la colaboración digital en la nube.
+    </p>
+
+    <div class="recursos">
+      <a href="experienciadeusuario.html" class="boton-seccion">UX – Experiencia de Usuario</a>
+      <a href="interfazdeusuario.html" class="boton-seccion">UI – Interfaz de Usuario</a>
+      <a href="designthinking.html" class="boton-seccion">Metodología Design Thinking</a>
+      <a href="colaboracionenlanube.html" class="boton-seccion">Colaboración en la Nube</a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-contenido">
+      <p>&copy; 2025 DSG Wiki – Todos los derechos reservados.</p>
+      <p>
+        Proyecto académico |
+        <a href="contacto.html">Contacto</a>
+      </p>
+    </div>
+  </footer>
+	
+	<!-- BUSCADOR FUNCIONAL -->
+ <script>
+  function buscarContenido() {
+    const termino = document.getElementById("buscar").value.toLowerCase().trim();
+    if (!termino) {
+      alert("Por favor escribe un término para buscar.");
+      return;
+    }
+
+    const busquedas = [
+      { palabras: ["ux", "experiencia", "usuario"], url: "../../A8_Proyecto integrador etapa 4/html/experienciadeusuario.html" },
+      { palabras: ["ui", "interfaz"], url: "../../A8_Proyecto integrador etapa 4/html/interfazdeusuario.html" },
+      { palabras: ["thinking", "design"], url: "../../A8_Proyecto integrador etapa 4/html/designthinking.html" },
+      { palabras: ["nube", "google", "drive", "colaboracion", "colaboración"], url: "../../A8_Proyecto integrador etapa 4/html/colaboracionenlanube.html" },
+      { palabras: ["inicio"], url: "inicio.html" },
+      { palabras: ["secciones"], url: "secciones.html" },
+      { palabras: ["recursos"], url: "recursos.html" },
+      { palabras: ["contacto"], url: "contacto.html" }
+    ];
+
+    let encontrado = false;
+    for (const item of busquedas) {
+      for (const palabra of item.palabras) {
+        if (termino.includes(palabra)) {
+          window.location.href = item.url;
+          encontrado = true;
+          break;
+        }
+      }
+      if (encontrado) break;
+    }
+    if (!encontrado) alert("No se encontró ninguna página relacionada con: " + termino);
+  }
+
+  // Detectar Enter en input para buscar
+  document.getElementById("buscar").addEventListener("keydown", function(e) {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      buscarContenido();
+    }
+  });
+</script>
+
+</body>
+</html>

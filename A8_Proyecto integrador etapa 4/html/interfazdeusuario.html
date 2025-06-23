@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>interfazdeusuario</title>
+<link href="../css/interfazdeusuario.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+	
+<div class="topbar">
+  <a href="index.html" style="text-decoration: none; color: inherit;">WIKI DE DISEÑO UVM</a>
+</div>
+	
+<div class="navbar">
+  <ul class="menu">
+    <li><a href="inicio.html">Inicio</a></li>
+    <li><a href="secciones.html">Secciones</a></li>
+    <li><a href="recursos.html">Recursos</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+  <div class="search-box">
+  <input type="text" id="buscar" placeholder="Buscar...">
+  <button onclick="buscarContenido()">Buscar</button>
+</div>
+</div>
+
+<!-- Contenido principal -->
+<div class="contenido">
+  <h1>Interfaz de Usuario (UI)</h1>
+  <img src="../img/Video_call_collaboration.png" alt="Interfaz de Usuario" class="imagen-centrada">
+  
+  <p>La interfaz de usuario, comúnmente conocida como UI por sus siglas en inglés (User Interface), es el punto de interacción donde una persona y un sistema digital se encuentran para comunicarse. Esto incluye todo lo que el usuario puede ver, tocar o con lo que puede interactuar en una aplicación, sitio web, software o dispositivo. La UI abarca elementos como botones, menús, iconos, colores, tipografías, disposición de contenidos, y otros componentes visuales que facilitan la comunicación entre el usuario y la máquina. La finalidad principal de una interfaz de usuario es hacer que la experiencia sea intuitiva, eficiente y agradable, de modo que el usuario pueda alcanzar sus objetivos sin frustraciones ni confusiones. Por ejemplo, en una aplicación móvil, una buena UI permitirá que el usuario navegue con facilidad, encuentre funciones rápidamente y complete tareas sin errores.</p>
+
+  <p>Para aplicar correctamente los conocimientos sobre UI, es fundamental entender que no se trata solo de diseñar algo visualmente atractivo, sino de crear una experiencia funcional y coherente. Esto implica estudiar al usuario final: quién es, qué necesita, cómo piensa y cuáles son sus expectativas. Aquí entran conceptos como la usabilidad, que busca que el sistema sea fácil de usar, y la accesibilidad, que asegura que personas con diferentes capacidades puedan interactuar con la interfaz sin problemas. Los estudiantes deben aprender a realizar investigaciones de usuarios, como encuestas o pruebas de usabilidad, para recolectar información valiosa que guíe el diseño. Además, deben conocer principios básicos de diseño visual, como el contraste, la jerarquía visual, el espaciado y la alineación, que ayudan a organizar los elementos y mejorar la comprensión.</p>
+
+  <p>Una parte clave para aplicar el conocimiento en UI es dominar herramientas y tecnologías que permiten crear prototipos y diseños funcionales. Los estudiantes pueden comenzar con programas como Figma, Adobe XD o Sketch, que facilitan la creación de maquetas interactivas para probar cómo funcionará una interfaz antes de desarrollarla completamente. A través de estas herramientas, es posible iterar rápidamente, hacer ajustes y validar ideas con usuarios reales. También es importante que los estudiantes entiendan la importancia de trabajar en equipo con desarrolladores, ya que la UI debe ser técnicamente viable y compatible con el código. Conocer conceptos básicos de HTML, CSS y JavaScript puede ser un plus para comunicarse mejor con programadores y asegurar que el diseño se implemente correctamente.</p>
+
+  <p>Finalmente, la aplicación de conocimientos de UI debe ir acompañada de un proceso constante de evaluación y mejora. El diseño no termina cuando la interfaz se lanza, sino que debe adaptarse según la retroalimentación de los usuarios y los cambios en las tendencias o tecnologías. Los estudiantes deben aprender a analizar métricas de uso, realizar pruebas A/B y estar atentos a nuevas metodologías y herramientas que potencien la experiencia del usuario. En resumen, la interfaz de usuario es una disciplina que combina creatividad, empatía por el usuario y conocimientos técnicos, y su aplicación adecuada es clave para crear productos digitales exitosos que sean útiles, accesibles y satisfactorios para las personas que los usan.</p>
+</div>
+
+<style>
+.contenido {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.contenido h1,
+.contenido img.imagen-centrada {
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contenido img.imagen-centrada {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.contenido p {
+  text-align: justify;
+  margin-left: 5px;
+  margin-right: 5px;
+  line-height: 1.6;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+</style>
+
+	<footer class="footer">
+  <div class="footer-contenido">
+    <p>&copy; 2025 DSG Wiki – Todos los derechos reservados.</p>
+    <p>
+      Proyecto académico | <a href="contacto.html">Contacto</a>
+    </p>
+  </div>
+</footer>
+	
+	<!-- BUSCADOR FUNCIONAL -->
+ <script>
+  function buscarContenido() {
+    const termino = document.getElementById("buscar").value.toLowerCase().trim();
+    if (!termino) {
+      alert("Por favor escribe un término para buscar.");
+      return;
+    }
+
+    const busquedas = [
+      { palabras: ["ux", "experiencia", "usuario"], url: "../../A8_Proyecto integrador etapa 4/html/experienciadeusuario.html" },
+      { palabras: ["ui", "interfaz"], url: "../../A8_Proyecto integrador etapa 4/html/interfazdeusuario.html" },
+      { palabras: ["thinking", "design"], url: "../../A8_Proyecto integrador etapa 4/html/designthinking.html" },
+      { palabras: ["nube", "google", "drive", "colaboracion", "colaboración"], url: "../../A8_Proyecto integrador etapa 4/html/colaboracionenlanube.html" },
+      { palabras: ["inicio"], url: "inicio.html" },
+      { palabras: ["secciones"], url: "secciones.html" },
+      { palabras: ["recursos"], url: "recursos.html" },
+      { palabras: ["contacto"], url: "contacto.html" }
+    ];
+
+    let encontrado = false;
+    for (const item of busquedas) {
+      for (const palabra of item.palabras) {
+        if (termino.includes(palabra)) {
+          window.location.href = item.url;
+          encontrado = true;
+          break;
+        }
+      }
+      if (encontrado) break;
+    }
+    if (!encontrado) alert("No se encontró ninguna página relacionada con: " + termino);
+  }
+
+  // Detectar Enter en input para buscar
+  document.getElementById("buscar").addEventListener("keydown", function(e) {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      buscarContenido();
+    }
+  });
+</script>
+
+</body>
+</html>
+
+

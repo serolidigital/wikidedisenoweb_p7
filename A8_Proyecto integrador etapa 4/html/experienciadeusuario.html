@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>experienciadeusuario</title>
+<link href="../css/experienciadeusuario.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+	
+<div class="topbar">
+  <a href="index.html" style="text-decoration: none; color: inherit;">WIKI DE DISEÑO UVM</a>
+</div>
+	
+<div class="navbar">
+  <ul class="menu">
+    <li><a href="inicio.html">Inicio</a></li>
+    <li><a href="secciones.html">Secciones</a></li>
+    <li><a href="recursos.html">Recursos</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+  <div class="search-box">
+  <input type="text" id="buscar" placeholder="Buscar...">
+  <button onclick="buscarContenido()">Buscar</button>
+</div>
+</div>
+
+<!-- Contenido principal -->
+<div class="contenido">
+  <h1>Experiencia de Usuario (UX)</h1>
+  <img src="../img/Rompecabezas.jpg" alt="Experiencia de Usuario" class="imagen-centrada">
+  
+  <p>La experiencia de usuario (UX) es un campo multidisciplinario que se centra en cómo una persona percibe y responde al interactuar con un sistema digital. Este sistema puede incluir sitios web, aplicaciones móviles, software, plataformas de comercio electrónico, entre otros. La UX no solo considera aspectos visuales o funcionales, sino también emocionales, psicológicos y contextuales, ya que la interacción con la tecnología influye directamente en la satisfacción, confianza y lealtad del usuario hacia la marca o producto. En esencia, la experiencia de usuario busca crear interacciones que sean agradables, eficientes y significativas para quienes utilizan el sistema.</p>
+
+  <p>Un elemento esencial dentro de la UX es la usabilidad, que se refiere a la facilidad con la que un usuario puede aprender, navegar y completar tareas dentro de un producto digital. La usabilidad asegura que la interfaz sea intuitiva, que la información esté organizada de manera lógica y que las acciones necesarias para alcanzar objetivos sean claras y accesibles. Cuando un producto cuenta con buena usabilidad, los usuarios cometen menos errores, requieren menos tiempo para realizar acciones y su nivel de frustración disminuye considerablemente, lo que repercute directamente en una mejor percepción del sistema.</p>
+
+  <p>La experiencia de usuario no solo beneficia al usuario final, sino que también aporta valor significativo a las empresas y desarrolladores. Un diseño centrado en la UX puede incrementar la tasa de conversión, fidelizar clientes, reducir costos en soporte técnico y disminuir la tasa de abandono. Además, al comprender profundamente las necesidades, expectativas y comportamientos del usuario, los equipos pueden tomar decisiones informadas durante el desarrollo o mejora de productos digitales, asegurando que cada cambio o funcionalidad agregada realmente aporte al objetivo final y a la satisfacción del usuario.</p>
+
+  <p>Finalmente, invertir en una buena experiencia de usuario es clave para mantenerse competitivo en un mercado cada vez más digitalizado y saturado. Los usuarios actuales buscan soluciones rápidas, intuitivas y sin complicaciones, y están dispuestos a cambiar de plataforma si su experiencia no es satisfactoria. Por ello, una UX bien diseñada no solo atrae a más usuarios, sino que también genera confianza y una conexión emocional que puede transformar usuarios ocasionales en clientes recurrentes y embajadores de la marca. En resumen, la UX es un componente estratégico fundamental para el éxito de cualquier producto digital.</p>
+</div>
+
+<style>
+.contenido {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.contenido h1,
+.contenido img.imagen-centrada {
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contenido img.imagen-centrada {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.contenido p {
+  text-align: justify;
+  margin-left: 5px;
+  margin-right: 5px;
+  line-height: 1.6;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+</style>
+
+	<footer class="footer">
+  <div class="footer-contenido">
+    <p>&copy; 2025 DSG Wiki – Todos los derechos reservados.</p>
+    <p>
+      Proyecto académico | <a href="contacto.html">Contacto</a>
+    </p>
+  </div>
+</footer>
+	
+	<!-- BUSCADOR FUNCIONAL -->
+ <script>
+  function buscarContenido() {
+    const termino = document.getElementById("buscar").value.toLowerCase().trim();
+    if (!termino) {
+      alert("Por favor escribe un término para buscar.");
+      return;
+    }
+
+    const busquedas = [
+      { palabras: ["ux", "experiencia", "usuario"], url: "../../A8_Proyecto integrador etapa 4/html/experienciadeusuario.html" },
+      { palabras: ["ui", "interfaz"], url: "../../A8_Proyecto integrador etapa 4/html/interfazdeusuario.html" },
+      { palabras: ["thinking", "design"], url: "../../A8_Proyecto integrador etapa 4/html/designthinking.html" },
+      { palabras: ["nube", "google", "drive", "colaboracion", "colaboración"], url: "../../A8_Proyecto integrador etapa 4/html/colaboracionenlanube.html" },
+      { palabras: ["inicio"], url: "inicio.html" },
+      { palabras: ["secciones"], url: "secciones.html" },
+      { palabras: ["recursos"], url: "recursos.html" },
+      { palabras: ["contacto"], url: "contacto.html" }
+    ];
+
+    let encontrado = false;
+    for (const item of busquedas) {
+      for (const palabra of item.palabras) {
+        if (termino.includes(palabra)) {
+          window.location.href = item.url;
+          encontrado = true;
+          break;
+        }
+      }
+      if (encontrado) break;
+    }
+    if (!encontrado) alert("No se encontró ninguna página relacionada con: " + termino);
+  }
+
+  // Detectar Enter en input para buscar
+  document.getElementById("buscar").addEventListener("keydown", function(e) {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      buscarContenido();
+    }
+  });
+</script>
+
+
+</body>
+</html>
+

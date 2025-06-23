@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>googledrive</title>
+<link href="../css/colaboracionenlanube.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+	
+	<div class="topbar">
+  <a href="index.html" style="text-decoration: none; color: inherit;">WIKI DE DISEÑO UVM</a>
+</div>
+	
+	<div class="navbar">
+  <ul class="menu">
+   <li><a href="inicio.html">Inicio</a></li>
+    <li><a href="secciones.html">Secciones</a></li>
+    <li><a href="recursos.html">Recursos</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+  <div class="search-box">
+  <input type="text" id="buscar" placeholder="Buscar...">
+  <button onclick="buscarContenido()">Buscar</button>
+</div>
+</div>
+	
+<!-- Contenido principal -->
+<div class="contenido">
+  <h1>Colaboración en la nube: Google Drive y la evolución del conocimiento digital</h1>
+  <img src="../img/GoogleDriveLogo650x366.png" alt="Drive" class="imagen-centrada">
+
+  <p>La evolución del conocimiento colaborativo en la era digital ha sido profundamente impactada por el desarrollo de plataformas en la nube, entre las cuales Google Drive destaca como una herramienta clave. Esta plataforma permite a los usuarios almacenar, compartir y editar documentos en tiempo real, facilitando la cooperación simultánea entre individuos o equipos distribuidos geográficamente. Así, Google Drive representa un cambio significativo en la forma en que se gestiona y distribuye la información, eliminando las barreras tradicionales de espacio y tiempo que limitaban la colaboración.</p>
+	
+  <p>Una de las principales ventajas de Google Drive es su capacidad para permitir la coautoría simultánea, donde múltiples usuarios pueden trabajar en un mismo documento, hoja de cálculo o presentación sin necesidad de enviar versiones por correo electrónico. Este modelo de trabajo en línea contribuye a una mayor eficiencia y dinamismo en la creación de contenido, además de fomentar la transparencia y la participación activa de todos los miembros involucrados. La integración con otras aplicaciones de Google Workspace también amplía las posibilidades de automatización y gestión del conocimiento digital.</p>
+	
+  <p>Asimismo, Google Drive contribuye a la evolución del conocimiento digital al ofrecer funcionalidades de control de versiones y almacenamiento seguro en la nube. Estas características aseguran que los usuarios puedan acceder a las versiones anteriores de sus archivos y proteger la integridad de la información frente a pérdidas o errores. La accesibilidad desde cualquier dispositivo con conexión a internet también potencia la flexibilidad y continuidad del trabajo colaborativo, adaptándose a las necesidades del entorno digital contemporáneo.</p>
+
+  <p>En conclusión, Google Drive ejemplifica cómo las tecnologías en la nube están transformando los métodos tradicionales de colaboración y gestión del conocimiento. Al facilitar el acceso simultáneo, la edición compartida y el almacenamiento seguro de información, esta herramienta apoya la construcción colectiva del conocimiento en un entorno digital globalizado, contribuyendo a una mayor productividad y creatividad en contextos educativos, empresariales y sociales.</p>
+</div>
+
+<style>
+.contenido {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.contenido h1,
+.contenido img.imagen-centrada {
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contenido img.imagen-centrada {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.contenido p {
+  text-align: justify;
+  margin-left: 5px;
+  margin-right: 5px;
+  line-height: 1.6;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+</style>
+
+	<footer class="footer">
+  <div class="footer-contenido">
+    <p>&copy; 2025 DSG Wiki – Todos los derechos reservados.</p>
+    <p>
+      Proyecto académico | <a href="contacto.html">Contacto</a>
+    </p>
+  </div>
+</footer>
+	
+	<!-- BUSCADOR FUNCIONAL -->
+ <script>
+  function buscarContenido() {
+    const termino = document.getElementById("buscar").value.toLowerCase().trim();
+    if (!termino) {
+      alert("Por favor escribe un término para buscar.");
+      return;
+    }
+
+    const busquedas = [
+      { palabras: ["ux", "experiencia", "usuario"], url: "../../A8_Proyecto integrador etapa 4/html/experienciadeusuario.html" },
+      { palabras: ["ui", "interfaz"], url: "../../A8_Proyecto integrador etapa 4/html/interfazdeusuario.html" },
+      { palabras: ["thinking", "design"], url: "../../A8_Proyecto integrador etapa 4/html/designthinking.html" },
+      { palabras: ["nube", "google", "drive", "colaboracion", "colaboración"], url: "../../A8_Proyecto integrador etapa 4/html/colaboracionenlanube.html" },
+      { palabras: ["inicio"], url: "inicio.html" },
+      { palabras: ["secciones"], url: "secciones.html" },
+      { palabras: ["recursos"], url: "recursos.html" },
+      { palabras: ["contacto"], url: "contacto.html" }
+    ];
+
+    let encontrado = false;
+    for (const item of busquedas) {
+      for (const palabra of item.palabras) {
+        if (termino.includes(palabra)) {
+          window.location.href = item.url;
+          encontrado = true;
+          break;
+        }
+      }
+      if (encontrado) break;
+    }
+    if (!encontrado) alert("No se encontró ninguna página relacionada con: " + termino);
+  }
+
+  // Detectar Enter en input para buscar
+  document.getElementById("buscar").addEventListener("keydown", function(e) {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      buscarContenido();
+    }
+  });
+</script>
+	
+</body>
+</html>
